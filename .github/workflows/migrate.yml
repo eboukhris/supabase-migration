@@ -1,0 +1,50 @@
+name: 🚀 Migration Base de Données Supabase
+
+on:
+  workflow_dispatch:  # Déclencher manuellement
+    inputs:
+      confirm:
+        description: 'Tapez "MIGRATE" pour confirmer'
+        required: true
+        type: string
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🛡️ Vérification de confirmation
+      if: github.event.inputs.confirm != 'MIGRATE'
+      run: |
+        echo "❌ Vous devez taper 'MIGRATE' pour confirmer"
+        exit 1
+    
+    - name: 📥 Checkout du code
+      uses: actions/checkout@v4
+    
+    - name: 🐘 Installation PostgreSQL client
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql-client
+    
+    - name: 🔧 Permissions des scripts
+      run: |
+        chmod +x scripts/migrate.sh
+        chmod +x scripts/verify.sh
+    
+    - name: 🚀 Migration des données
+      env:
+        DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_HDS_DATABASE_URL }}
+      run: ./scripts/migrate.sh
+    
+    - name: 🔍 Vérification post-migration
+      env:
+        DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_HDS_DATABASE_URL }}
+      run: ./scripts/verify.sh
+    
+    - name: 🎉 Notification de succès
+      run: |
+        echo "🎊 Migration terminée avec succès !"
+        echo "📊 Vérifiez votre base DEV-HDS dans le dashboard Supabase"
