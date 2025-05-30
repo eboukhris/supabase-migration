@@ -4,7 +4,7 @@ set -e  # Arrêter si erreur
 echo "🚀 Début de la migration..."
 
 # Vérifier les variables
-if [ -z "$DEV_DATABASE_URL" ] || [ -z "$DEV_HDS_DATABASE_URL" ]; then
+if [ -z "$DEV_DATABASE_URL" ] || [ -z "$DEV_TEST_DATABASE_URL" ]; then
     echo "❌ Variables manquantes"
     exit 1
 fi
@@ -14,7 +14,7 @@ psql "$DEV_DATABASE_URL" -c "SELECT version();" > /dev/null
 echo "✅ Connexion source OK"
 
 echo "📊 Vérification de la connexion destination..."
-psql "$DEV_HDS_DATABASE_URL" -c "SELECT version();" > /dev/null
+psql "$DEV_TEST_DATABASE_URL" -c "SELECT version();" > /dev/null
 echo "✅ Connexion destination OK"
 
 echo "🗃️ Export des données depuis DEV..."
@@ -28,7 +28,7 @@ pg_dump "$DEV_DATABASE_URL" \
 echo "📁 Taille du backup: $(ls -lh backup.sql | awk '{print $5}')"
 
 echo "🔄 Import vers DEV-HDS..."
-psql "$DEV_HDS_DATABASE_URL" < backup.sql
+psql "$DEV_TEST_DATABASE_URL" < backup.sql
 
 echo "🧹 Nettoyage..."
 rm backup.sql
