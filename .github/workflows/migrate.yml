@@ -11,7 +11,9 @@ on:
 jobs:
   migrate:
     runs-on: ubuntu-latest
-    
+    env:
+      DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+      DEV_HDS_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }} # ou une valeur vide si pas utilisée
     steps:
     - name: 🛡️ Vérification de confirmation
       if: github.event.inputs.confirm != 'MIGRATE'
@@ -35,13 +37,13 @@ jobs:
     - name: 🚀 Migration des données
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
-        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_HDS_DATABASE_URL }}
+        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
       run: ./scripts/migrate.sh
     
     - name: 🔍 Vérification post-migration
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
-        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_HDS_DATABASE_URL }}
+        DEV_HDS_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
       run: ./scripts/verify.sh
     
     - name: 🎉 Notification de succès
