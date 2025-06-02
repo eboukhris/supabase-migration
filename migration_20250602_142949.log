@@ -1,0 +1,242 @@
+🔍 Comparaison des structures...
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Toutes les tables existent déjà dans la destination
+🔄 Synchronisation incrémentale des données...
+🔄 Synchronisation: agent_tools
+  🔑 Clé primaire détectée: id
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 66ce73f8-6327-45f5-8df6-b1f75132b21e dans la table agent_tools :
+    Valeurs : '66ce73f8-6327-45f5-8df6-b1f75132b21e', 'f', '{"transfer_type": "predefined", "transfer_number": ""}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_transfer_call', 'transfer_call', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = af706b7f-ce07-46f2-bd16-bf6380b8f5d0 dans la table agent_tools :
+    Valeurs : 'af706b7f-ce07-46f2-bd16-bf6380b8f5d0', 'f', '{"transfer_number": ""}', '2025-02-25 10:28:05.129876+00', '2025-02-25 10:28:05.129876+00', 'fn_transfer_call', 'transfer_call', 'dfa31a5d-0d73-421b-9d16-ca985b63d115'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 4a61ff62-f432-4245-9c0a-3390bc7aa36f dans la table agent_tools :
+    Valeurs : '4a61ff62-f432-4245-9c0a-3390bc7aa36f', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-25 10:28:05.129876+00', '2025-02-25 10:28:05.129876+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', 'dfa31a5d-0d73-421b-9d16-ca985b63d115'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = b1cefa16-f569-4c1e-8155-f199b6cb3312 dans la table agent_tools :
+    Valeurs : 'b1cefa16-f569-4c1e-8155-f199b6cb3312', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-25 10:28:05.129876+00', '2025-02-25 10:28:05.129876+00', 'fn_check_google_agenda_slots', 'check_availability_cal', 'dfa31a5d-0d73-421b-9d16-ca985b63d115'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e0225f51-005d-4334-8c0c-ec3eb5bd311b dans la table agent_tools :
+    Valeurs : 'e0225f51-005d-4334-8c0c-ec3eb5bd311b', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = c83a768f-3aa8-4ba9-bddd-50babcb3ada3 dans la table agent_tools :
+    Valeurs : 'c83a768f-3aa8-4ba9-bddd-50babcb3ada3', 't', '{}', '2025-02-25 10:28:05.129876+00', '2025-02-25 10:28:05.129876+00', 'fn_end_call', 'end_call', 'dfa31a5d-0d73-421b-9d16-ca985b63d115'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 096b0aa4-d533-47dd-a54b-0b0e83c286d2 dans la table agent_tools :
+    Valeurs : '096b0aa4-d533-47dd-a54b-0b0e83c286d2', 't', '{}', '2025-02-25 10:28:05.129876+00', '2025-02-25 10:28:05.129876+00', 'fn_current_time', 'custom', 'dfa31a5d-0d73-421b-9d16-ca985b63d115'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 61de28a3-35ff-4a9e-b081-478dcbdeb81a dans la table agent_tools :
+    Valeurs : '61de28a3-35ff-4a9e-b081-478dcbdeb81a', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_check_google_agenda_slots', 'check_availability_cal', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 08e2b4ff-5c87-48df-9263-caf11386fe5d dans la table agent_tools :
+    Valeurs : '08e2b4ff-5c87-48df-9263-caf11386fe5d', 't', '{}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_end_call', 'end_call', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e044d787-1ea7-4f30-858f-2b801153faf7 dans la table agent_tools :
+    Valeurs : 'e044d787-1ea7-4f30-858f-2b801153faf7', 't', '{}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_current_time', 'custom', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = f0bd064d-56a2-461f-b90f-baa3aca9314f dans la table agent_tools :
+    Valeurs : 'f0bd064d-56a2-461f-b90f-baa3aca9314f', 't', '{"message": "Bonjour, je suis votre assistant virtuel. Comment puis-je vous aider aujourd''hui ?"}', '2025-05-22 15:02:41.032662+00', '2025-05-22 15:02:41.032662+00', 'fn_send_sms', 'custom', 'b18013db-3294-4736-a010-59d41cdc30a7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6fd88aa4-a2f8-4d27-ae14-bbc0bf3759c5 dans la table agent_tools :
+    Valeurs : '6fd88aa4-a2f8-4d27-ae14-bbc0bf3759c5', 'f', '{"transfer_number": ""}', '2025-03-03 17:32:15.632819+00', '2025-03-03 17:32:15.632819+00', 'fn_transfer_call', 'transfer_call', '4750ecf4-b894-42dc-928a-6e1434b917cf'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6badb56e-3203-49b2-a3b5-1eb051c89ed3 dans la table agent_tools :
+    Valeurs : '6badb56e-3203-49b2-a3b5-1eb051c89ed3', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-03 17:32:15.632819+00', '2025-03-03 17:32:15.632819+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', '4750ecf4-b894-42dc-928a-6e1434b917cf'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = c54cadbd-0c34-4406-9955-e9510daaa719 dans la table agent_tools :
+    Valeurs : 'c54cadbd-0c34-4406-9955-e9510daaa719', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-03 17:32:15.632819+00', '2025-03-03 17:32:15.632819+00', 'fn_check_google_agenda_slots', 'check_availability_cal', '4750ecf4-b894-42dc-928a-6e1434b917cf'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 60969309-786c-4e25-9192-0a4a727fd259 dans la table agent_tools :
+    Valeurs : '60969309-786c-4e25-9192-0a4a727fd259', 't', '{}', '2025-03-03 17:32:15.632819+00', '2025-03-03 17:32:15.632819+00', 'fn_end_call', 'end_call', '4750ecf4-b894-42dc-928a-6e1434b917cf'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 22f09169-3fb2-4281-81c1-2386329464d0 dans la table agent_tools :
+    Valeurs : '22f09169-3fb2-4281-81c1-2386329464d0', 't', '{}', '2025-03-03 17:32:15.632819+00', '2025-03-03 17:32:15.632819+00', 'fn_current_time', 'custom', '4750ecf4-b894-42dc-928a-6e1434b917cf'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = cb834269-735f-4dae-861d-7dc936cb2ff2 dans la table agent_tools :
+    Valeurs : 'cb834269-735f-4dae-861d-7dc936cb2ff2', 'f', '{"transfer_number": ""}', '2025-03-03 21:01:54.361918+00', '2025-03-03 21:01:54.361918+00', 'fn_transfer_call', 'transfer_call', 'ea52cb24-9d7d-4a66-9caa-9163a53ef021'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = aff34471-7709-404b-aaca-a2c617c939f6 dans la table agent_tools :
+    Valeurs : 'aff34471-7709-404b-aaca-a2c617c939f6', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-03 21:01:54.361918+00', '2025-03-03 21:01:54.361918+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', 'ea52cb24-9d7d-4a66-9caa-9163a53ef021'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6cb4b641-311d-4d8d-859b-054308b7459b dans la table agent_tools :
+    Valeurs : '6cb4b641-311d-4d8d-859b-054308b7459b', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-03 21:01:54.361918+00', '2025-03-03 21:01:54.361918+00', 'fn_check_google_agenda_slots', 'check_availability_cal', 'ea52cb24-9d7d-4a66-9caa-9163a53ef021'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 31173d60-3def-494a-94ec-df6a1aa47638 dans la table agent_tools :
+    Valeurs : '31173d60-3def-494a-94ec-df6a1aa47638', 't', '{}', '2025-03-03 21:01:54.361918+00', '2025-03-03 21:01:54.361918+00', 'fn_end_call', 'end_call', 'ea52cb24-9d7d-4a66-9caa-9163a53ef021'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = d8a36cc7-37a1-4f9a-b2f6-9ab621ef23af dans la table agent_tools :
+    Valeurs : 'd8a36cc7-37a1-4f9a-b2f6-9ab621ef23af', 't', '{}', '2025-03-03 21:01:54.361918+00', '2025-03-03 21:01:54.361918+00', 'fn_current_time', 'custom', 'ea52cb24-9d7d-4a66-9caa-9163a53ef021'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 7783a2cd-56e8-490c-a45c-0ed0a02beba8 dans la table agent_tools :
+    Valeurs : '7783a2cd-56e8-490c-a45c-0ed0a02beba8', 'f', '{"transfer_number": ""}', '2025-03-04 09:00:34.120701+00', '2025-03-04 09:00:34.120701+00', 'fn_transfer_call', 'transfer_call', 'd83cc970-4eba-4932-80f2-ab67684c2953'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = cc020061-8074-404f-9366-7c5337501631 dans la table agent_tools :
+    Valeurs : 'cc020061-8074-404f-9366-7c5337501631', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-04 09:00:34.120701+00', '2025-03-04 09:00:34.120701+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', 'd83cc970-4eba-4932-80f2-ab67684c2953'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e59e82fe-76c1-4aa8-ad48-1745cb5f3494 dans la table agent_tools :
+    Valeurs : 'e59e82fe-76c1-4aa8-ad48-1745cb5f3494', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-04 09:00:34.120701+00', '2025-03-04 09:00:34.120701+00', 'fn_check_google_agenda_slots', 'check_availability_cal', 'd83cc970-4eba-4932-80f2-ab67684c2953'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6a999c24-1dfd-46c1-b240-cb65ebe891f9 dans la table agent_tools :
+    Valeurs : '6a999c24-1dfd-46c1-b240-cb65ebe891f9', 't', '{}', '2025-03-04 09:00:34.120701+00', '2025-03-04 09:00:34.120701+00', 'fn_end_call', 'end_call', 'd83cc970-4eba-4932-80f2-ab67684c2953'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 673b41fc-c2f8-4de6-9632-df4e7509cc4a dans la table agent_tools :
+    Valeurs : '673b41fc-c2f8-4de6-9632-df4e7509cc4a', 't', '{}', '2025-03-04 09:00:34.120701+00', '2025-03-04 09:00:34.120701+00', 'fn_current_time', 'custom', 'd83cc970-4eba-4932-80f2-ab67684c2953'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 57b7c5a1-3af1-4bdd-b534-0323ea5365ab dans la table agent_tools :
+    Valeurs : '57b7c5a1-3af1-4bdd-b534-0323ea5365ab', 'f', '{"transfer_number": ""}', '2025-03-04 10:20:45.069611+00', '2025-03-04 10:20:45.069611+00', 'fn_transfer_call', 'transfer_call', 'c620a004-4d5e-4ea3-bd62-8713427b91be'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e8a99f53-3cb4-4df1-b901-f4c980106526 dans la table agent_tools :
+    Valeurs : 'e8a99f53-3cb4-4df1-b901-f4c980106526', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-04 10:20:45.069611+00', '2025-03-04 10:20:45.069611+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', 'c620a004-4d5e-4ea3-bd62-8713427b91be'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 2756e7e4-c371-4a96-b87c-6e4ca991620b dans la table agent_tools :
+    Valeurs : '2756e7e4-c371-4a96-b87c-6e4ca991620b', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-04 10:20:45.069611+00', '2025-03-04 10:20:45.069611+00', 'fn_check_google_agenda_slots', 'check_availability_cal', 'c620a004-4d5e-4ea3-bd62-8713427b91be'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 0bc552aa-175e-44b2-b3b5-9e6b9a9b108b dans la table agent_tools :
+    Valeurs : '0bc552aa-175e-44b2-b3b5-9e6b9a9b108b', 'f', '{"transfer_number": ""}', '2025-02-26 14:57:23.891033+00', '2025-02-26 14:57:23.891033+00', 'fn_transfer_call', 'transfer_call', '19af71c6-509c-473f-a632-9b14727af4d7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 26900aa4-6df0-4409-8401-c33dcfb30fb5 dans la table agent_tools :
+    Valeurs : '26900aa4-6df0-4409-8401-c33dcfb30fb5', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-26 14:57:23.891033+00', '2025-02-26 14:57:23.891033+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', '19af71c6-509c-473f-a632-9b14727af4d7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 446dd11f-7f28-4a42-ac08-600c803a727d dans la table agent_tools :
+    Valeurs : '446dd11f-7f28-4a42-ac08-600c803a727d', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-26 14:57:23.891033+00', '2025-02-26 14:57:23.891033+00', 'fn_check_google_agenda_slots', 'check_availability_cal', '19af71c6-509c-473f-a632-9b14727af4d7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6426f33c-7779-4866-a3bf-042944b7ea5d dans la table agent_tools :
+    Valeurs : '6426f33c-7779-4866-a3bf-042944b7ea5d', 't', '{}', '2025-02-26 14:57:23.891033+00', '2025-02-26 14:57:23.891033+00', 'fn_end_call', 'end_call', '19af71c6-509c-473f-a632-9b14727af4d7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 923aee37-3da7-4d16-b651-dbb45f9e0912 dans la table agent_tools :
+    Valeurs : '923aee37-3da7-4d16-b651-dbb45f9e0912', 't', '{}', '2025-02-26 14:57:23.891033+00', '2025-02-26 14:57:23.891033+00', 'fn_current_time', 'custom', '19af71c6-509c-473f-a632-9b14727af4d7'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 6d0e7487-4982-4917-a55d-954d4de2b2b5 dans la table agent_tools :
+    Valeurs : '6d0e7487-4982-4917-a55d-954d4de2b2b5', 't', '{}', '2025-03-04 10:20:45.069611+00', '2025-03-04 10:20:45.069611+00', 'fn_end_call', 'end_call', 'c620a004-4d5e-4ea3-bd62-8713427b91be'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 707b12a6-c88e-47a4-ac77-5df3baabbe6d dans la table agent_tools :
+    Valeurs : '707b12a6-c88e-47a4-ac77-5df3baabbe6d', 't', '{}', '2025-03-04 10:20:45.069611+00', '2025-03-04 10:20:45.069611+00', 'fn_current_time', 'custom', 'c620a004-4d5e-4ea3-bd62-8713427b91be'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e1aa89f7-8fac-4df8-a60f-b1808d3de899 dans la table agent_tools :
+    Valeurs : 'e1aa89f7-8fac-4df8-a60f-b1808d3de899', 'f', '{"transfer_number": ""}', '2025-03-09 14:20:44.062614+00', '2025-03-09 14:20:44.062614+00', 'fn_transfer_call', 'transfer_call', '7de26a11-5a14-4bdc-b35a-b68582059cd9'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 9afafa80-b397-4385-ae04-38dfd6127e79 dans la table agent_tools :
+    Valeurs : '9afafa80-b397-4385-ae04-38dfd6127e79', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-09 14:20:44.062614+00', '2025-03-09 14:20:44.062614+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', '7de26a11-5a14-4bdc-b35a-b68582059cd9'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = f23e33f7-1239-4960-81c1-523182fa3026 dans la table agent_tools :
+    Valeurs : 'f23e33f7-1239-4960-81c1-523182fa3026', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-03-09 14:20:44.062614+00', '2025-03-09 14:20:44.062614+00', 'fn_check_google_agenda_slots', 'check_availability_cal', '7de26a11-5a14-4bdc-b35a-b68582059cd9'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 1d86e5c2-e4b7-46f9-978c-c460118e3db1 dans la table agent_tools :
+    Valeurs : '1d86e5c2-e4b7-46f9-978c-c460118e3db1', 't', '{}', '2025-03-09 14:20:44.062614+00', '2025-03-09 14:20:44.062614+00', 'fn_end_call', 'end_call', '7de26a11-5a14-4bdc-b35a-b68582059cd9'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = bc825ec3-713d-4406-b732-4bc2c241d7d3 dans la table agent_tools :
+    Valeurs : 'bc825ec3-713d-4406-b732-4bc2c241d7d3', 't', '{}', '2025-03-09 14:20:44.062614+00', '2025-03-09 14:20:44.062614+00', 'fn_current_time', 'custom', '7de26a11-5a14-4bdc-b35a-b68582059cd9'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 5d12b967-2476-4f24-867f-cd4cca90b8c6 dans la table agent_tools :
+    Valeurs : '5d12b967-2476-4f24-867f-cd4cca90b8c6', 'f', '{"transfer_number": ""}', '2025-02-28 13:02:51.509676+00', '2025-02-28 13:02:51.509676+00', 'fn_transfer_call', 'transfer_call', '5d01a720-71c6-4c49-b8b6-93f9ce85ab7d'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 413fe352-4c3e-41af-924f-dbb74df73454 dans la table agent_tools :
+    Valeurs : '413fe352-4c3e-41af-924f-dbb74df73454', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-28 13:02:51.509676+00', '2025-02-28 13:02:51.509676+00', 'fn_book_appointment_google_agenda', 'book_appointment_cal', '5d01a720-71c6-4c49-b8b6-93f9ce85ab7d'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = 7494641a-bb80-4936-aa8a-e683c3ac3125 dans la table agent_tools :
+    Valeurs : '7494641a-bb80-4936-aa8a-e683c3ac3125', 'f', '{"timezone": "Europe/Paris", "cal_api_key": "", "event_type_id": ""}', '2025-02-28 13:02:51.509676+00', '2025-02-28 13:02:51.509676+00', 'fn_check_google_agenda_slots', 'check_availability_cal', '5d01a720-71c6-4c49-b8b6-93f9ce85ab7d'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = de32f19c-b2dd-4146-9a96-a3ffb1be7fcb dans la table agent_tools :
+    Valeurs : 'de32f19c-b2dd-4146-9a96-a3ffb1be7fcb', 't', '{}', '2025-02-28 13:02:51.509676+00', '2025-02-28 13:02:51.509676+00', 'fn_end_call', 'end_call', '5d01a720-71c6-4c49-b8b6-93f9ce85ab7d'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = e888ca47-6d05-4f8a-939b-193963cf553f dans la table agent_tools :
+    Valeurs : 'e888ca47-6d05-4f8a-939b-193963cf553f', 't', '{}', '2025-02-28 13:02:51.509676+00', '2025-02-28 13:02:51.509676+00', 'fn_current_time', 'custom', '5d01a720-71c6-4c49-b8b6-93f9ce85ab7d'
+ERROR:  INSERT has more target columns than expressions
+LINE 1: ...escription, config, created_at, updated_at, name, tool_type,...
+                                                             ^
+❌ Erreur sur la ligne avec clé primaire = fecb8dbf-af99-4341-a01f-486b2e16b600 dans la table agent_tools :
+    Valeurs : 'fecb8dbf-af99-4341-a01f-486b2e16b600', 'f', '{"transfer_type": "predefined", "transfer_number": ""}', '2025-05-28 16:30:45.224147+00', '2025-05-28 16:30:45.224147+00', 'fn_transfer_call', 'transfer_call', '59063f3f-2bdf-42df-8b2c-177cd2ced7ff'

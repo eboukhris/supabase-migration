@@ -59,20 +59,14 @@ jobs:
         
     - name: 🔧 Permissions des scripts
       run: |
-        chmod +x scripts/migrate.sh
+        chmod +x scripts/migrate-all.sh
         chmod +x scripts/verify.sh
         
-    - name: 🚀 Migration des données (Tables) - TEMPORAIREMENT DÉSACTIVÉ
-      if: false  # Désactive cette étape
+    - name: 🚀 Migration des données (Tables)
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
-      run: ./scripts/migrate.sh
-      
-    - name: ℹ️ Skip Migration Tables
-      run: |
-        echo "⏭️ Migration des tables ignorée pour ce test"
-        echo "🎯 Focus sur Storage et Auth seulement"
+      run: ./scripts/migrate-all.sh
       
     - name: 🗂️ Migration Storage (Buckets et Politiques)
       if: github.event.inputs.migrate_storage == 'true'
@@ -170,8 +164,7 @@ jobs:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
       run: |
-        # ./scripts/verify.sh  # Désactivé temporairement
-        echo "⏭️ Vérification tables ignorée pour ce test"
+        ./scripts/verify.sh
         
         # Vérifications supplémentaires pour storage et auth
         if [ "${{ github.event.inputs.migrate_storage }}" = "true" ]; then

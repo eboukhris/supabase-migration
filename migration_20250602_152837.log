@@ -1,0 +1,14 @@
+🔍 Comparaison des structures...
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Toutes les tables existent déjà dans la destination
+🔄 Synchronisation incrémentale des données...
+🔄 Synchronisation: agent_tools
+  🔑 Clé primaire détectée: id
+🔄 Synchronisation: agents_config_options
+  🔑 Clé primaire détectée: id
+🔄 Synchronisation: agents_criterias
+  🔑 Clé primaire détectée: id
+🔄 Synchronisation: agents_organizations
+  🔑 Clé primaire détectée: id
+  ⚠️ Méthode dblink échouée, utilisation du dump...

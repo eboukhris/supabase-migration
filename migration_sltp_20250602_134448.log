@@ -1,0 +1,11 @@
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Aucune table manquante
+🔄 Synchronisation de la table agent_tools
+🔑 Clé primaire : id
+✅ Données synchronisées pour agent_tools
+🔄 Synchronisation de la table agents_config_options
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_config_options
+🔄 Synchronisation de la table agents_criterias
+🔑 Clé primaire : id

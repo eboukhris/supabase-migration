@@ -1,0 +1,42 @@
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Aucune table manquante
+🔄 Synchronisation de la table agents_config_options
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour agents_config_options ...
+✅ Données synchronisées pour agents_config_options
+📊 agents_config_options : source=123, destination=123
+🔄 Synchronisation de la table agents_criterias
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour agents_criterias ...
+✅ Données synchronisées pour agents_criterias
+📊 agents_criterias : source=0, destination=0
+🔄 Synchronisation de la table agents_organizations
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour agents_organizations ...
+✅ Données synchronisées pour agents_organizations
+📊 agents_organizations : source=112, destination=112
+🔄 Synchronisation de la table agent_tools
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour agent_tools ...
+✅ Données synchronisées pour agent_tools
+📊 agent_tools : source=102, destination=102
+🔄 Synchronisation de la table api_keys
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour api_keys ...
+✅ Données synchronisées pour api_keys
+📊 api_keys : source=5, destination=5
+🔄 Synchronisation de la table calcom_config
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour calcom_config ...
+✅ Données synchronisées pour calcom_config
+📊 calcom_config : source=2, destination=2
+🔄 Synchronisation de la table calls_logs
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour calls_logs ...
+✅ Données synchronisées pour calls_logs
+📊 calls_logs : source=4831, destination=4831
+🔄 Synchronisation de la table campaign_execution_contacts
+🔑 Clé primaire : id
+⏳ Exécution de l'insertion pour campaign_execution_contacts ...
+✅ Données synchronisées pour campaign_execution_contacts

@@ -1,0 +1,26 @@
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Aucune table manquante
+🔄 Synchronisation de la table agent_tools
+🔑 Clé primaire : id
+✅ Données synchronisées pour agent_tools
+🔄 Synchronisation de la table agents_config_options
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_config_options
+🔄 Synchronisation de la table agents_criterias
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_criterias
+🔄 Synchronisation de la table agents_organizations
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_organizations
+🔄 Synchronisation de la table api_keys
+🔑 Clé primaire : id
+✅ Données synchronisées pour api_keys
+🔄 Synchronisation de la table calcom_config
+🔑 Clé primaire : id
+✅ Données synchronisées pour calcom_config
+🔄 Synchronisation de la table calls_logs
+🔑 Clé primaire : id
+✅ Données synchronisées pour calls_logs
+🔄 Synchronisation de la table campaign_execution_contacts
+🔑 Clé primaire : id

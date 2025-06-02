@@ -1,0 +1,125 @@
+📊 Tables source: 40
+📊 Tables destination: 40
+✅ Aucune table manquante
+🔄 Synchronisation de la table agent_tools
+🔑 Clé primaire : id
+✅ Données synchronisées pour agent_tools
+🔄 Synchronisation de la table agents_config_options
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_config_options
+🔄 Synchronisation de la table agents_criterias
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_criterias
+🔄 Synchronisation de la table agents_organizations
+🔑 Clé primaire : id
+✅ Données synchronisées pour agents_organizations
+🔄 Synchronisation de la table api_keys
+🔑 Clé primaire : id
+✅ Données synchronisées pour api_keys
+🔄 Synchronisation de la table calcom_config
+🔑 Clé primaire : id
+✅ Données synchronisées pour calcom_config
+🔄 Synchronisation de la table calls_logs
+🔑 Clé primaire : id
+✅ Données synchronisées pour calls_logs
+🔄 Synchronisation de la table campaign_execution_contacts
+🔑 Clé primaire : id
+✅ Données synchronisées pour campaign_execution_contacts
+🔄 Synchronisation de la table campaign_executions
+🔑 Clé primaire : id
+✅ Données synchronisées pour campaign_executions
+🔄 Synchronisation de la table campaigns
+🔑 Clé primaire : id
+✅ Données synchronisées pour campaigns
+🔄 Synchronisation de la table contacts
+🔑 Clé primaire : id
+✅ Données synchronisées pour contacts
+🔄 Synchronisation de la table contacts_source
+🔑 Clé primaire : id
+✅ Données synchronisées pour contacts_source
+🔄 Synchronisation de la table conversation_mappings
+🔑 Clé primaire : id
+✅ Données synchronisées pour conversation_mappings
+🔄 Synchronisation de la table crawl_jobs
+🔑 Clé primaire : id
+✅ Données synchronisées pour crawl_jobs
+🔄 Synchronisation de la table doctolib_configs
+🔑 Clé primaire : id
+✅ Données synchronisées pour doctolib_configs
+🔄 Synchronisation de la table enovacom_config
+⚠️ Table enovacom_config ignorée (pas de clé primaire)
+🔄 Synchronisation de la table entity_organizations
+🔑 Clé primaire : id
+✅ Données synchronisées pour entity_organizations
+🔄 Synchronisation de la table filters
+🔑 Clé primaire : id
+✅ Données synchronisées pour filters
+🔄 Synchronisation de la table gmail_tokens
+🔑 Clé primaire : id
+✅ Données synchronisées pour gmail_tokens
+🔄 Synchronisation de la table history_tasks_timeline
+🔑 Clé primaire : id
+✅ Données synchronisées pour history_tasks_timeline
+🔄 Synchronisation de la table integrations
+🔑 Clé primaire : organization_id, provider_name
+✅ Données synchronisées pour integrations
+🔄 Synchronisation de la table knowledge_base
+🔑 Clé primaire : id
+✅ Données synchronisées pour knowledge_base
+🔄 Synchronisation de la table listes
+🔑 Clé primaire : id
+✅ Données synchronisées pour listes
+🔄 Synchronisation de la table metiers
+🔑 Clé primaire : id
+✅ Données synchronisées pour metiers
+🔄 Synchronisation de la table metiers_system_tasks
+🔑 Clé primaire : id
+✅ Données synchronisées pour metiers_system_tasks
+🔄 Synchronisation de la table nav_settings
+🔑 Clé primaire : id
+✅ Données synchronisées pour nav_settings
+🔄 Synchronisation de la table organization_subscriptions
+🔑 Clé primaire : id
+✅ Données synchronisées pour organization_subscriptions
+🔄 Synchronisation de la table organizations
+🔑 Clé primaire : id
+✅ Données synchronisées pour organizations
+🔄 Synchronisation de la table phone_numbers
+🔑 Clé primaire : id
+✅ Données synchronisées pour phone_numbers
+🔄 Synchronisation de la table retry_queue
+🔑 Clé primaire : id
+✅ Données synchronisées pour retry_queue
+🔄 Synchronisation de la table system_tasks
+🔑 Clé primaire : id
+✅ Données synchronisées pour system_tasks
+🔄 Synchronisation de la table tasks_customer
+🔑 Clé primaire : id
+✅ Données synchronisées pour tasks_customer
+🔄 Synchronisation de la table template_msg_whatsapp
+🔑 Clé primaire : id
+✅ Données synchronisées pour template_msg_whatsapp
+🔄 Synchronisation de la table tmp_tasks_customer_cse
+🔑 Clé primaire : id
+✅ Données synchronisées pour tmp_tasks_customer_cse
+🔄 Synchronisation de la table users
+🔑 Clé primaire : id
+✅ Données synchronisées pour users
+🔄 Synchronisation de la table whatsapp_configurations
+🔑 Clé primaire : id
+✅ Données synchronisées pour whatsapp_configurations
+🔄 Synchronisation de la table whatsapp_messages
+🔑 Clé primaire : id
+✅ Données synchronisées pour whatsapp_messages
+🔄 Synchronisation de la table workflow_executions
+🔑 Clé primaire : id
+✅ Données synchronisées pour workflow_executions
+🔄 Synchronisation de la table workflow_sequence_tasks
+🔑 Clé primaire : id
+✅ Données synchronisées pour workflow_sequence_tasks
+🔄 Synchronisation de la table workflows
+🔑 Clé primaire : id
+✅ Données synchronisées pour workflows
+🔢 Synchronisation des séquences...
+✅ Séquences synchronisées
+✅ Migration SLTP terminée avec succès !
