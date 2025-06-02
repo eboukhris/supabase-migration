@@ -59,14 +59,14 @@ jobs:
         
     - name: 🔧 Permissions des scripts
       run: |
-        chmod +x scripts/migrate-all.sh
+        chmod +x scripts/migrate.sh
         chmod +x scripts/verify.sh
         
     - name: 🚀 Migration des données (Tables)
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
-      run: ./scripts/migrate-all.sh
+      run: ./scripts/migrate.sh
       
     - name: 🗂️ Migration Storage (Buckets et Politiques)
       if: github.event.inputs.migrate_storage == 'true'
