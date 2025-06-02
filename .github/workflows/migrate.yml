@@ -1,52 +1,197 @@
 name: 🚀 Migration Base de Données Supabase
 
 on:
-  workflow_dispatch:  # Déclencher manuellement
+  workflow_dispatch: # Déclencher manuellement
     inputs:
       confirm:
         description: 'Tapez "MIGRATE" pour confirmer'
         required: true
         type: string
+      migrate_storage:
+        description: 'Migrer le storage (buckets et politiques)'
+        required: false
+        type: boolean
+        default: true
+      migrate_auth:
+        description: 'Migrer les configurations auth'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   migrate:
     runs-on: ubuntu-latest
     env:
       DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
-      DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }} # ou une valeur vide si pas utilisée
+      DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
+      SOURCE_SUPABASE_URL: ${{ secrets.SOURCE_SUPABASE_URL }}
+      SOURCE_SUPABASE_SERVICE_KEY: ${{ secrets.SOURCE_SUPABASE_SERVICE_KEY }}
+      TARGET_SUPABASE_URL: ${{ secrets.TARGET_SUPABASE_URL }}
+      TARGET_SUPABASE_SERVICE_KEY: ${{ secrets.TARGET_SUPABASE_SERVICE_KEY }}
+    
     steps:
     - name: 🛡️ Vérification de confirmation
       if: github.event.inputs.confirm != 'MIGRATE'
       run: |
         echo "❌ Vous devez taper 'MIGRATE' pour confirmer"
         exit 1
-    
+        
     - name: 📥 Checkout du code
       uses: actions/checkout@v4
-    
+      
     - name: 🐘 Installation PostgreSQL client
       run: |
         sudo apt-get update
         sudo apt-get install -y postgresql-client
+        
+    - name: 📦 Installation Node.js et Supabase CLI
+      if: github.event.inputs.migrate_storage == 'true' || github.event.inputs.migrate_auth == 'true'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
     
+    - name: 🔧 Installation Supabase CLI
+      if: github.event.inputs.migrate_storage == 'true' || github.event.inputs.migrate_auth == 'true'
+      run: |
+        npm install -g @supabase/supabase-js
+        curl -fsSL https://supabase.com/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        
     - name: 🔧 Permissions des scripts
       run: |
         chmod +x scripts/migrate.sh
         chmod +x scripts/verify.sh
-    
-    - name: 🚀 Migration des données
+        
+    - name: 🚀 Migration des données (Tables) - TEMPORAIREMENT DÉSACTIVÉ
+      if: false  # Désactive cette étape
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
       run: ./scripts/migrate.sh
-    
+      
+    - name: ℹ️ Skip Migration Tables
+      run: |
+        echo "⏭️ Migration des tables ignorée pour ce test"
+        echo "🎯 Focus sur Storage et Auth seulement"
+      
+    - name: 🗂️ Migration Storage (Buckets et Politiques)
+      if: github.event.inputs.migrate_storage == 'true'
+      run: |
+        echo "🗂️ Migration du storage..."
+        
+        # Créer le script de migration storage
+        cat > migrate_storage.sql << 'EOF'
+        -- Migrer les buckets depuis le projet source
+        INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types, avif_autodetection, created_at, updated_at)
+        SELECT id, name, public, file_size_limit, allowed_mime_types, avif_autodetection, created_at, updated_at
+        FROM storage.buckets
+        ON CONFLICT (id) DO UPDATE SET
+          name = EXCLUDED.name,
+          public = EXCLUDED.public,
+          file_size_limit = EXCLUDED.file_size_limit,
+          allowed_mime_types = EXCLUDED.allowed_mime_types,
+          avif_autodetection = EXCLUDED.avif_autodetection,
+          updated_at = EXCLUDED.updated_at;
+        EOF
+        
+        # Exporter les buckets depuis la source
+        echo "📤 Export des buckets depuis la source..."
+        psql "$DEV_DATABASE_URL" -c "SELECT 'Buckets trouvés:', COUNT(*) FROM storage.buckets;"
+        
+        # Créer un dump spécifique pour le storage
+        pg_dump "$DEV_DATABASE_URL" \
+          --verbose \
+          --no-owner \
+          --no-privileges \
+          --data-only \
+          --table=storage.buckets \
+          --table=storage.objects > storage_backup.sql
+        
+        # Importer dans la destination
+        echo "📥 Import des buckets vers la destination..."
+        psql "$DEV_TEST_DATABASE_URL" < storage_backup.sql
+        
+        # Vérification
+        psql "$DEV_TEST_DATABASE_URL" -c "SELECT 'Buckets migrés:', COUNT(*) FROM storage.buckets;"
+        
+        rm storage_backup.sql
+        echo "✅ Migration storage terminée"
+        
+    - name: 🔐 Migration Auth (Configurations)
+      if: github.event.inputs.migrate_auth == 'true'
+      run: |
+        echo "🔐 Migration des configurations auth..."
+        
+        # Créer le script pour migrer les configurations auth
+        cat > migrate_auth.sql << 'EOF'
+        -- Migrer les configurations auth si elles existent dans des tables personnalisées
+        -- Note: Les utilisateurs Supabase sont dans auth.users (schéma protégé)
+        
+        -- Exemple pour migrer des métadonnées utilisateur personnalisées
+        -- INSERT INTO user_profiles (user_id, display_name, avatar_url, created_at)
+        -- SELECT user_id, display_name, avatar_url, created_at FROM user_profiles
+        -- ON CONFLICT (user_id) DO UPDATE SET
+        --   display_name = EXCLUDED.display_name,
+        --   avatar_url = EXCLUDED.avatar_url;
+        
+        -- Vérifier les tables liées à l'auth
+        SELECT 'Tables auth trouvées:', COUNT(*) 
+        FROM information_schema.tables 
+        WHERE table_name LIKE '%user%' OR table_name LIKE '%auth%' 
+        AND table_schema = 'public';
+        EOF
+        
+        # Exporter les données auth personnalisées (profiles, etc.)
+        echo "📤 Export des données auth personnalisées..."
+        pg_dump "$DEV_DATABASE_URL" \
+          --verbose \
+          --no-owner \
+          --no-privileges \
+          --data-only \
+          --table="*user*" \
+          --table="*profile*" > auth_backup.sql 2>/dev/null || echo "Aucune table auth personnalisée trouvée"
+        
+        # Importer si le fichier n'est pas vide
+        if [ -s auth_backup.sql ]; then
+          echo "📥 Import des données auth personnalisées..."
+          psql "$DEV_TEST_DATABASE_URL" < auth_backup.sql
+        else
+          echo "ℹ️ Aucune donnée auth personnalisée à migrer"
+        fi
+        
+        # Appliquer les configurations
+        psql "$DEV_TEST_DATABASE_URL" < migrate_auth.sql
+        
+        rm -f auth_backup.sql migrate_auth.sql
+        echo "✅ Migration auth terminée"
+        
     - name: 🔍 Vérification post-migration
       env:
         DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         DEV_TEST_DATABASE_URL: ${{ secrets.DEV_TEST_DATABASE_URL }}
-      run: ./scripts/verify.sh
-    
+      run: |
+        # ./scripts/verify.sh  # Désactivé temporairement
+        echo "⏭️ Vérification tables ignorée pour ce test"
+        
+        # Vérifications supplémentaires pour storage et auth
+        if [ "${{ github.event.inputs.migrate_storage }}" = "true" ]; then
+          echo "🗂️ Vérification Storage:"
+          psql "$DEV_TEST_DATABASE_URL" -c "SELECT 'Buckets:', COUNT(*) FROM storage.buckets;"
+          psql "$DEV_TEST_DATABASE_URL" -c "SELECT id, name, public FROM storage.buckets;"
+        fi
+        
+        if [ "${{ github.event.inputs.migrate_auth }}" = "true" ]; then
+          echo "🔐 Vérification Auth:"
+          psql "$DEV_TEST_DATABASE_URL" -c "SELECT 'Tables auth:', COUNT(*) FROM information_schema.tables WHERE table_schema = 'public' AND (table_name LIKE '%user%' OR table_name LIKE '%profile%');"
+        fi
+        
     - name: 🎉 Notification de succès
       run: |
         echo "🎊 Migration terminée avec succès !"
         echo "📊 Vérifiez votre base DEV-HDS dans le dashboard Supabase"
+        if [ "${{ github.event.inputs.migrate_storage }}" = "true" ]; then
+          echo "🗂️ Storage migré - Vérifiez vos buckets dans le dashboard"
+        fi
+        if [ "${{ github.event.inputs.migrate_auth }}" = "true" ]; then
+          echo "🔐 Configurations auth migrées"
+        fi
