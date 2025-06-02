@@ -45,15 +45,12 @@ else
 fi
 
 rm -f enums.sql
-# --- Étape 2 : Migration des fonctions ---
-echo "🧠 Migration des fonctions..." | tee -a "$LOG_FILE"
-pg_dump "$DEV_DATABASE_URL" --schema=public --section=pre-data --funcs-only > functions.sql
-psql "$DEV_TEST_DATABASE_URL" < functions.sql
-rm -f functions.sql
 
 # --- Étape 3 : Migration des tables stables (ordre SLTP prioritaire) ---
 echo "📂 Migration des tables stables (ordre SLTP)..." | tee -a "$LOG_FILE"
-ORDERED_TABLES=("customers" "devices" "drivers" "vehicles" "accounts") # À ajuster
+ORDERED_TABLES=("campaigns"
+  "campaign_executions"
+  "campaign_execution_contacts") # À ajuster
 
 for table in "${ORDERED_TABLES[@]}"; do
   echo "📦 Export de la table $table" | tee -a "$LOG_FILE"
