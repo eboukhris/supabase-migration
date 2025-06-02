@@ -32,23 +32,19 @@ touch "$LOG_FILE"
 echo "📊 Vérification des connexions..."
 psql "$DEV_DATABASE_URL" -c "SELECT 1;" > /dev/null
 psql "$DEV_TEST_DATABASE_URL" -c "SELECT 1;" > /dev/null
-
 # --- Étape 1 : Migration des ENUM ---
 echo "🔤 Migration des types ENUM..." | tee -a "$LOG_FILE"
-psql "$DEV_DATABASE_URL" -At -c "
-SELECT n.nspname || '.' || t.typname
-FROM pg_type t
-JOIN pg_enum e ON t.oid = e.enumtypid
-JOIN pg_namespace n ON n.oid = t.typnamespace
-GROUP BY n.nspname, t.typname;" > enums.txt
 
-for enum in $(cat enums.txt); do
-  echo "🧩 Export ENUM: $enum" | tee -a "$LOG_FILE"
-  pg_dump "$DEV_DATABASE_URL" --schema=public --create --if-exists --clean --section=pre-data --type=TYPE --table="$enum" > enum.sql
-  psql "$DEV_TEST_DATABASE_URL" < enum.sql
-  rm -f enum.sql
-done
+pg_dump "$DEV_DATABASE_URL" --schema=public --section=pre-data | grep -iE 'CREATE TYPE .* AS ENUM' > enums.sql
 
+if [ -s enums.sql ]; then
+  psql "$DEV_TEST_DATABASE_URL" < enums.sql
+  echo "✅ ENUMs migrés" | tee -a "$LOG_FILE"
+else
+  echo "ℹ️ Aucun ENUM trouvé." | tee -a "$LOG_FILE"
+fi
+
+rm -f enums.sql
 # --- Étape 2 : Migration des fonctions ---
 echo "🧠 Migration des fonctions..." | tee -a "$LOG_FILE"
 pg_dump "$DEV_DATABASE_URL" --schema=public --section=pre-data --funcs-only > functions.sql
